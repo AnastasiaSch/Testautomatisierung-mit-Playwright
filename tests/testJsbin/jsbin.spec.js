@@ -2,8 +2,10 @@ const { test, expect } = require('@playwright/test');
 const JsbinPage = require('./jsbin.page');
 const jsbinPage = new JsbinPage();
 
+
 //Vor jedem Test beginn mit der Startseite mit Console. Funktion beforeEach(). 
 test.beforeEach(async ({ page }) => {
+    jsbinPage.setPage(page);
     await page.goto(jsbinPage.URLJsConsole);
   });
 
@@ -15,8 +17,6 @@ test.beforeEach(async ({ page }) => {
 //Schritt5: Als Ergebniss zeige gefundene Info oben auf der Webseite
 test.describe('correct links to specific parts of a page with input "Search"', () => {
     test("correct links: /#html-css-panel", async ({ page }) => {
-        jsbinPage.setPage(page);
-        await page.pause();
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.html);
@@ -25,8 +25,6 @@ test.describe('correct links to specific parts of a page with input "Search"', (
     })
     
     test("correct links: /#application-level", async ({ page }) => {
-        jsbinPage.setPage(page);
-        await page.pause();
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.application);
@@ -43,8 +41,6 @@ test.describe('correct links to specific parts of a page with input "Search"', (
   //Schritt5: Als Ergebniss zeige gleiche URL, die vor der Benutzung "Search-Funktion" war.
   test.describe('correct URLs', () => {
     test("correct URl: /#html-css-panel", async ({ page }) => {
-        jsbinPage.setPage(page);
-        await page.pause();
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.html);
@@ -53,8 +49,6 @@ test.describe('correct links to specific parts of a page with input "Search"', (
     })
     
     test("correct URl: /#application-level", async ({ page }) => {
-        jsbinPage.setPage(page);
-        await page.pause();
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.application);

@@ -9,29 +9,24 @@ class JsbinPage {
         this.page = page;
     }
 
+    //locators
     get buttonImgFigure() {
         return this.page.getByRole('link', { name: 'Welcome to JS Bin' });
     }
     get linkKeyboardShortcuts() {
-        return this.page.getByRole('link', { name: 'Keyboard Shortcuts', exact: true });
-    }
-    get linkHtmlAndCssPanel() {
-        return this.page.getByText('Keyboard Shortcuts HTML & CSS panel HTML & CSS panel HTML & CSS panel');
-    }
-    get linkApplicationLevel() {
-        return this.page.getByText('Keyboard Shortcuts Application level Application level Application level');
+        return this.page.locator('[href="http://jsbin.com/help/keyboard-shortcuts"]');
     }
     get inputSearch() {
-        return this.page.getByPlaceholder('Search...');
+        return this.page.locator('#search');
     }
     get textHtmlCssPansel() {
-        return this.page.getByText('HTML & CSS panel');
+        return this.page.locator('h2#html-css-panel');
     }
     get textApplicationLevel() {
-        return this.page.getByText('Application level');
+        return this.page.locator('h2#application-level');
     }
 
-
+    //search Option
     get fillOptionsSearch() {
         return {
             html: "HTML & CSS panel",

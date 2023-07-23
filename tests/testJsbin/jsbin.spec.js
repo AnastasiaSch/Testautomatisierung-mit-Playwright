@@ -9,14 +9,14 @@ test.beforeEach(async ({ page }) => {
     await page.goto(jsbinPage.URLJsConsole);
   });
 
-//Eine Sammlung von Testen N1 zeigt der Prüfung der Links zu bestimmten Stellen einer Seite per Search-Angabe.
+//Eine Sammlung von Testen N1 zeigt die Prüfung der Ausgabe von Search-Angaben.
 //Schritt1: Klick auf ButtonImgFigute links 
 //Schritt2: Klick auf den Text "Keyboard Shortcuts"
 //Schritt3: Schreib in Search-Feld "HTML & CSS panel" (erster Test) und "Application level" (zweiter Test)
 //Schritt4: Drücke "Enter" auf Tastatur
-//Schritt5: Als Ergebniss zeige gefundene Info oben auf der Webseite
-test.describe('correct links to specific parts of a page with input "Search"', () => {
-    test("correct links: /#html-css-panel", async ({ page }) => {
+//Schritt5: Sollverhalten: gesuchte Info gibt es auf der Webseite
+test.describe('outnput of "Search"-funk', () => {
+    test("correct output: /#html-css-panel", async ({ page }) => {
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.html);
@@ -24,7 +24,7 @@ test.describe('correct links to specific parts of a page with input "Search"', (
         await expect(jsbinPage.textHtmlCssPansel).toBeVisible();  
     })
     
-    test("correct links: /#application-level", async ({ page }) => {
+    test("correct output: /#application-level", async ({ page }) => {
         await jsbinPage.buttonImgFigure.click();
         await jsbinPage.linkKeyboardShortcuts.click();
         await jsbinPage.inputSearch.fill(jsbinPage.fillOptionsSearch.application);
@@ -38,7 +38,7 @@ test.describe('correct links to specific parts of a page with input "Search"', (
   //Schritt2: Klick auf den Text "Keyboard Shortcuts"
   //Schritt3: Schreib in Search-Feld "HTML & CSS panel" (erster Test) und "Application level" (zweiter Test)
   //Schritt4: Drücke "Enter" auf Tastatur
-  //Schritt5: Als Ergebniss zeige gleiche URL, die vor der Benutzung "Search-Funktion" war.
+  //Schritt5: Sollverhalten: gleiche URL, die vor der Benutzung "Search-Funktion" war.
   test.describe('correct URLs', () => {
     test("correct URl: /#html-css-panel", async ({ page }) => {
         await jsbinPage.buttonImgFigure.click();
